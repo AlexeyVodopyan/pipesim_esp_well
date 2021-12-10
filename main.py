@@ -4,30 +4,13 @@ from typing import Optional, Tuple, Dict, Any
 import pandas as pd
 
 from tr_parser import parse_tr
-from pipesim_model import make_pipesim_model, calc_pt_profile, calc_nodal
+from pipesim_model import make_pipesim_model, calc_pt_profile
 
 
 def calc_pt(model_path: str,
             model_name: str,
             parameters: Optional[dict] = None,
             p_wh: float = None, q_liq: float = None) -> \
-        Tuple[pd.DataFrame, Dict[Any, pd.DataFrame], Dict[Any, pd.DataFrame]]:
-    """
-    :param q_liq: дебит жидкости, м3/сут
-    :param p_wh: буферное давление, атм
-    :param model_path: путь к модели pipesim
-    :param model_name: название модели / скважины
-    :param parameters:параметры расчета pt профиля
-    :return: system_results, nodal_results, profile_results
-    """
-
-    return calc_pt_profile(model_path, model_name, parameters, p_wh, q_liq)
-
-
-def calc_nodal(model_path: str,
-               model_name: str,
-               parameters: Optional[dict] = None,
-               p_wh: float = None, q_liq: float = None) -> \
         Tuple[pd.DataFrame, Dict[Any, pd.DataFrame], Dict[Any, pd.DataFrame]]:
     """
     :param q_liq: дебит жидкости, м3/сут
